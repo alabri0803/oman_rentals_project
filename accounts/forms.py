@@ -1,3 +1,4 @@
+# accounts/forms.py
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
@@ -6,60 +7,56 @@ from .models import CustomUser, Delegate
 
 
 class CustomUserCreationForm(UserCreationForm):
-  class Meta(UserCreationForm.Meta):
-    model = CustomUser
-    fields = ('username', 'email', 'user_type')
-    labels = {
-      'username': _('اسم المستخدم'),
-      'email': _('البريد الإلكتروني'),
-      'user_type': _('نوع المستخدم'),
-    }
+    password1 = forms.CharField(
+        label=_("كلمة المرور"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'class': 'form-control'}),
+    )
+    password2 = forms.CharField(
+        label=_("تأكيد كلمة المرور"),
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'class': 'form-control'}),
+        strip=False,
+    )
+
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'email', 'first_name', 'last_name', 'user_type', 'phone')
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'user_type': forms.Select(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+        labels = {
+            'username': _('اسم المستخدم'),
+            'email': _('البريد الإلكتروني'),
+            'first_name': _('الاسم الأول'),
+            'last_name': _('الاسم الأخير'),
+            'user_type': _('نوع المستخدم'),
+            'phone': _('رقم الهاتف'),
+        }
 
 class CustomUserChangeForm(UserChangeForm):
-  class Meta:
-    model = CustomUser
-    fields = '__all__'
+    class Meta:
+        model = CustomUser
+        fields = '__all__'
 
 class DelegateForm(forms.ModelForm):
-  class Meta:
-    model = Delegate
-    fields = '__all__'
-    exclude = ('user',)
-    widgets = {
-      'start_date': forms.DateInput(attrs={'type': 'date'}),
-      'end_date': forms.DateInput(attrs={'type': 'date'}),
-    }
-    labels = {
-      'authorization_number': _('رقم التفويض'),
-      'start_date': _('تاريخ البدء'),
-      'end_date': _('تاريخ الانتهاء'),
-      'is_active': _('نشط'),
-      'authorization_document': _('وثيقة التفويض'),
-    }
-
-class CompanyRegistrationForm(forms.ModelForm):
-  password1 = forms.CharField(label=_('كلمة المرور'), widget=forms.PasswordInput)
-  password2 = forms.CharField(label=_('تأكيد كلمة المرور'), widget=forms.PasswordInput)
-  class Meta:
-    model = CustomUser
-    fields = ('company_name', 'commercial_registration', 'tax_card', 'phone', 'company_address')
-    labels = {
-      'company_name': _('اسم الشركة'),
-      'commercial_registration': _('السجل التجاري'),
-      'tax_card': _('البطاقة الضريبية'),
-      'phone': _('رقم الهاتف'),
-      'company_address': _('العنوان التفصيلي'),
-    }
-  def clean_password2(self):
-    password1 = self.cleaned_data.get("password1")
-    password2 = self.cleaned_data.get("password2")
-    if password1 and password2 and password1 != password2:
-      raise forms.ValidationError(_("كلمة المرور غير متطابقة"))
-    return password2
-  def save(self, commit=True):
-    user = super().save(commit=False)
-    user.set_password(self.cleaned_data["password1"])
-    user.user_type = 'tenant'
-    if commit:
-      user.save()
-    return user
+    class Meta:
+        model = Delegate
+        fields = '__all__'
+        widgets = {
+            'user': forms.Select(attrs={'class': 'form-control'}),
+            'authorization_number': forms.TextInput(attrs={'class': 'form-control'}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+        }
+        labels = {
+            'user': _('المستخدم'),
+            'authorization_number': _('رقم التفويض'),
+            'start_date': _('تاريخ البدء'),
+            'end_date': _('تاريخ الانتهاء'),
+            'is_active': _('نشط'),
+        }
