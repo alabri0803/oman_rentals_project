@@ -1,0 +1,85 @@
+/* تنسيقات عمانية مخصصة */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Tahoma', Arial, sans-serif;
+}
+
+.bg-primary {
+    background-color: #0f5a7a !important; /* اللون الأزرق العماني */
+}
+
+.btn-primary {
+    background-color: #0f5a7a;
+    border-color: #0f5a7a;
+}
+
+.btn-primary:hover {
+    background-color: #0d4b66;
+    border-color: #0d4b66;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #343a40;
+    margin-top: 50px;
+}
+
+/* تنسيقات النماذج */
+.form-control:focus {
+    border-color: #0f5a7a;
+    box-shadow: 0 0 0 0.25rem rgba(15, 90, 122, 0.25);
+}
+
+.invalid-feedback {
+    display: block;
+}
+
+/* تنسيقات الجداول */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* تنسيقات للوحة التحكم */
+.dashboard-card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 10px;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card .card-body {
+    padding: 1.5rem;
+}
+
+.dashboard-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #0f5a7a;
+}
+
+.dashboard-card .card-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
