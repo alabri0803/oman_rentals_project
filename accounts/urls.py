@@ -27,8 +27,8 @@ urlpatterns = [
     path('profile/delegate/<int:pk>/', views.profile_delegate, name='profile_delegate'),
 
     # إدارة المستخدمين
-    path('users/', views.user_list, name='user_list'),
-    path('users/<int:pk>/', views.user_detail, name='user_detail'),
+    path('users/', views.UserListView.as_view(), name='user_list'),
+    path('users/<int:pk>/', views.UserDetailView.as_view(), name='user_detail'),
 
     # تغيير كلمة المرور
     path('password-change/', auth_views.PasswordChangeView.as_view(

@@ -42,15 +42,13 @@ class CompanyRegistrationForm(forms.ModelForm):
   password2 = forms.CharField(label=_('تأكيد كلمة المرور'), widget=forms.PasswordInput)
   class Meta:
     model = CustomUser
-    fields = ('company_name', 'company_registration', 'tax_card', 'phone', 'email', 'governorate', 'address')
+    fields = ('company_name', 'commercial_registration', 'tax_card', 'phone', 'company_address')
     labels = {
       'company_name': _('اسم الشركة'),
-      'company_registration': _('السجل التجاري'),
+      'commercial_registration': _('السجل التجاري'),
       'tax_card': _('البطاقة الضريبية'),
       'phone': _('رقم الهاتف'),
-      'email': _('البريد الإلكتروني'),
-      'governorate': _('المحافظة'),
-      'address': _('العنوان التفصيلي'),
+      'company_address': _('العنوان التفصيلي'),
     }
   def clean_password2(self):
     password1 = self.cleaned_data.get("password1")
