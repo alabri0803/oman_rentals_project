@@ -11,31 +11,31 @@
             <div class="card-body">
                 <form method="post" class="needs-validation" novalidate>
                     {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="username" class="form-label">{% trans "اسم المستخدم" %}</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                    <div class="mb-4">
+                        <label for="username" class="block text-right font-medium text-gray-700">{% trans "اسم المستخدم" %}</label>
+                        <input type="text" class="w-full mt-1 p-2 border rounded-md text-right" id="username" name="username" required>
                         <div class="invalid-feedback">
                             {% trans "يرجى إدخال اسم المستخدم" %}
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">{% trans "كلمة المرور" %}</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="mb-4">
+                        <label for="password" class="block text-right font-medium text-gray-700">{% trans "كلمة المرور" %}</label>
+                        <input type="password" class="w-full mt-1 p-2 border rounded-md text-right" id="password" name="password" required>
                         <div class="invalid-feedback">
                             {% trans "يرجى إدخال كلمة المرور" %}
                         </div>
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                        <label class="form-check-label" for="remember">{% trans "تذكرني" %}</label>
+                    <div class="mb-4 flex items-center justify-between">
+                        <input type="checkbox" class="form-checkbox" id="remember" name="remember">
+                        <label class="text-sm text-gray-600" for="remember">{% trans "تذكرني" %}</label>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">{% trans "تسجيل الدخول" %}</button>
+                    <button type="submit" class="w-full bg-green-700 text-white py-2 rounded-md hover:bg-green-800">{% trans "تسجيل الدخول" %}</button>
                 </form>
                 <hr>
                 <div class="text-center">
                     <a href="{% url 'password_reset' %}" class="text-decoration-none">{% trans "نسيت كلمة المرور؟" %}</a>
                     <span class="mx-2">|</span>
-                    <a href="{% url 'register' %}" class="text-decoration-none">{% trans "إنشاء حساب جديد" %}</a>
+                    <p class="text-center text-sm text-gray-600 mt-4">ليس لديك حساب؟ <a href="#" class="text-blue-600 hover:underline">إنشاء حساب جديد</a></p>
                 </div>
             </div>
         </div>
