@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib import admin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
@@ -57,3 +58,6 @@ class DelegateForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control'})
+
+admin.site.register(CustomUser, CustomUserCreationForm, CustomUserChangeForm)
+admin.site.register(Delegate, DelegateForm)
