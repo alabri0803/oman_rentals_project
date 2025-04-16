@@ -2,33 +2,41 @@
 {% load i18n %}
 
 {% block content %}
-<div class="card shadow rounded mx-auto" style="max-width: 400px;">
-        <div class="card-header bg-primary text-white text-center">
-            <h4 class="mb-0">{% trans "تسجيل الدخول" %}</h4>
-        </div>
-        <div class="card-body">
-            <form method="post" novalidate>
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label for="username" class="form-label">{% trans "اسم المستخدم" %}</label>
-                    <input type="text" class="form-control text-end" id="username" name="username" required>
-                    <div class="invalid-feedback">{% trans "يرجى إدخال اسم المستخدم" %}</div>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">{% trans "تسجيل الدخول" %}</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="username" class="form-label">{% trans "اسم المستخدم" %}</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                        <div class="invalid-feedback">
+                            {% trans "يرجى إدخال اسم المستخدم" %}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">{% trans "كلمة المرور" %}</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <div class="invalid-feedback">
+                            {% trans "يرجى إدخال كلمة المرور" %}
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <label class="form-check-label" for="remember">{% trans "تذكرني" %}</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">{% trans "تسجيل الدخول" %}</button>
+                </form>
+                <hr>
+                <div class="text-center">
+                    <a href="{% url 'password_reset' %}" class="text-decoration-none">{% trans "نسيت كلمة المرور؟" %}</a>
+                    <span class="mx-2">|</span>
+                    <a href="{% url 'register' %}" class="text-decoration-none">{% trans "إنشاء حساب جديد" %}</a>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">{% trans "كلمة المرور" %}</label>
-                    <input type="password" class="form-control text-end" id="password" name="password" required>
-                    <div class="invalid-feedback">{% trans "يرجى إدخال كلمة المرور" %}</div>
-                </div>
-                <div class="mb-3 form-check text-end">
-                    <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                    <label class="form-check-label" for="remember">{% trans "تذكرني" %}</label>
-                </div>
-                <button type="submit" class="btn btn-success w-100">{% trans "تسجيل الدخول" %}</button>
-            </form>
-            <hr>
-            <div class="text-center">
-                <a href="{% url 'password_reset' %}" class="text-decoration-none">{% trans "نسيت كلمة المرور؟" %}</a>
-                <p class="text-muted mt-3">{% trans "ليس لديك حساب؟" %} <a href="#" class="text-primary">{% trans "إنشاء حساب جديد" %}</a></p>
             </div>
         </div>
     </div>

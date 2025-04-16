@@ -1,118 +1,71 @@
-/* تنسيقات عُمانية حديثة تراعي الراحة البصرية والهوية المحلية */
+/* تنسيقات عمانية مخصصة */
 body {
-    background-color: #f5f5f5;
-    font-family: 'Noto Sans Arabic', 'Tahoma', Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
+    background-color: #f8f9fa;
+    font-family: 'Tahoma', Arial, sans-serif;
 }
 
-/* الألوان المستوحاة من البيئة العُمانية */
-:root {
-    --blue-omani: #1a6a8d; /* لون أزرق عُماني معدل */
-    --sand: #e8d9b5; /* لون الرمال العُمانية */
-    --green-omani: #2a5a3c; /* لون الخضرة العُمانية */
-    --light-beige: #f8f4e8; /* لون فاتح مريح للعيون */
-}
-
-/* تحسين تباين الألوان للراحة البصرية */
 .bg-primary {
-    background-color: var(--blue-omani) !important;
+    background-color: #0f5a7a !important; /* اللون الأزرق العماني */
 }
 
 .btn-primary {
-    background-color: var(--blue-omani);
-    border-color: var(--blue-omani);
-    padding: 0.5rem 1.5rem;
-    font-weight: 600;
+    background-color: #0f5a7a;
+    border-color: #0f5a7a;
 }
 
 .btn-primary:hover {
-    background-color: #145272;
-    border-color: #145272;
+    background-color: #0d4b66;
+    border-color: #0d4b66;
 }
 
-/* تحسين شكل البطاقات */
 .card {
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    border: none;
-    background-color: white;
-    transition: transform 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-3px);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
-    border-radius: 8px 8px 0 0 !important;
-    background-color: var(--light-beige);
-    font-weight: 600;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-radius: 10px 10px 0 0 !important;
 }
 
-/* تحسين شريط التنقل */
 .navbar {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: white !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-brand {
-    font-weight: 700;
-    color: var(--blue-omani) !important;
-}
-
-/* تذييل الصفحة */
 footer {
-    background-color: var(--green-omani);
-    color: white;
-    padding: 2rem 0;
-    margin-top: 3rem;
+    background-color: #343a40;
+    margin-top: 50px;
 }
 
-/* تحسين النماذج للإستخدام العام */
-.form-control {
-    border-radius: 6px;
-    padding: 0.75rem 1rem;
-    border: 1px solid #ddd;
-}
-
+/* تنسيقات النماذج */
 .form-control:focus {
-    border-color: var(--blue-omani);
-    box-shadow: 0 0 0 0.2rem rgba(26, 106, 141, 0.15);
+    border-color: #0f5a7a;
+    box-shadow: 0 0 0 0.25rem rgba(15, 90, 122, 0.25);
 }
 
-/* تحسين الجداول */
+.invalid-feedback {
+    display: block;
+}
+
+/* تنسيقات الجداول */
 .table {
-    margin-bottom: 1rem;
-    border-collapse: separate;
-    border-spacing: 0;
+    margin-bottom: 0;
 }
 
 .table th {
-    background-color: var(--light-beige);
+    background-color: #f8f9fa;
     font-weight: 600;
-    color: #444;
-    padding: 1rem;
 }
 
-.table td {
-    padding: 0.75rem 1rem;
-    border-top: 1px solid #eee;
-}
-
-/* تحسين لوحة التحكم */
+/* تنسيقات للوحة التحكم */
 .dashboard-card {
+    transition: all 0.3s ease;
     border: none;
     border-radius: 10px;
-    overflow: hidden;
-    background-color: white;
-    transition: all 0.3s ease;
 }
 
 .dashboard-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-card .card-body {
@@ -120,36 +73,13 @@ footer {
 }
 
 .dashboard-card .card-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: var(--blue-omani);
-    font-weight: 600;
+    color: #0f5a7a;
 }
 
 .dashboard-card .card-text {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: #222;
-}
-
-/* تحسينات للعرض على الأجهزة المحمولة */
-@media (max-width: 768px) {
-    .card {
-        border-radius: 6px;
-    }
-
-    .dashboard-card .card-text {
-        font-size: 1.5rem;
-    }
-
-    .form-control {
-        padding: 0.65rem 0.9rem;
-    }
-}
-
-/* تحسينات للخطوط العربية */
-.arabic-text {
-    line-height: 1.8;
-    letter-spacing: 0;
-    font-weight: 400;
+    color: #333;
 }

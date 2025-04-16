@@ -9,84 +9,85 @@
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/omani-style.css' %}">
     {% block extra_css %}{% endblock %}
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .login-container {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        footer {
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body>
-
-<!-- Header -->
-<header class="bg-primary text-white py-2">
-    <div class="container d-flex justify-content-between align-items-center">
-        <h5 class="m-0">{% trans "نظام إدارة الإيجارات" %} - {% trans "سلطنة عمان" %}</h5>
-        <div>
-            {% if request.user.is_authenticated %}
-                <span class="me-3">{% trans "مرحباً" %}، {{ request.user.get_full_name }}</span>
-                <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-light">{% trans "تسجيل خروج" %}</a>
-            {% else %}
-                <a href="{% url 'login' %}" class="btn btn-sm btn-outline-light me-2">{% trans "تسجيل دخول" %}</a>
-                <a href="{% url 'register' %}" class="btn btn-sm btn-light">{% trans "تسجيل جديد" %}</a>
-            {% endif %}
-        </div>
-    </div>
-</header>
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{% trans "الرئيسية" %}</a>
-                </li>
-                {% if request.user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{% trans "لوحة التحكم" %}</a>
-                    </li>
-                    {% if request.user.user_type == 'owner' %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'profile_owner' %}">{% trans "ملفي الشخصي" %}</a></li>
-                    {% elif request.user.user_type == 'investor' or request.user.user_type == 'tenant' %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'profile_company' %}">{% trans "ملف الشركة" %}</a></li>
-                    {% elif request.user.user_type == 'delegate' %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'profile_delegate' %}">{% trans "ملف المفوض" %}</a></li>
+    <!-- Header -->
+    <header class="bg-primary text-white py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="m-0">
+                        <a href="#" class="text-white text-decoration-none">
+                            {% trans "نظام إدارة الإيجارات" %}
+                        </a>
+                    </h1>
+                    <p class="m-0">{% trans "سلطنة عمان" %}</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    {% if request.user.is_authenticated %}
+                        <span class="me-3">{% trans "مرحباً" %}, {{ request.user.get_full_name }}</span>
+                        <a href="{% url 'logout' %}" class="btn btn-outline-light">{% trans "تسجيل خروج" %}</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-outline-light me-2">{% trans "تسجيل دخول" %}</a>
+                        <a href="{% url 'register' %}" class="btn btn-light">{% trans "تسجيل جديد" %}</a>
                     {% endif %}
-                {% endif %}
-            </ul>
-            <form method="post" action="#" class="d-flex">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-                <select name="language" class="form-select form-select-sm" onchange="this.form.submit()">
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                            {{ language.name_local }}
-                        </option>
-                    {% endfor %}
-                </select>
-            </form>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </header>
 
-<!-- Main Content -->
-<main class="login-container">
-    <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{% trans "الرئيسية" %}</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{% trans "لوحة التحكم" %}</a>
+                        </li>
+                        {% if request.user.user_type == 'owner' %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profile_owner' %}">{% trans "ملفي الشخصي" %}</a>
+                            </li>
+                        {% elif request.user.user_type == 'investor' or request.user.user_type == 'tenant' %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profile_company' %}">{% trans "ملف الشركة" %}</a>
+                            </li>
+                        {% elif request.user.user_type == 'delegate' %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profile_delegate' %}">{% trans "ملف المفوض" %}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                </ul>
+                <div class="d-flex">
+                    <form action="#" method="post" class="d-flex">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select name="language" class="form-select form-select-sm" onchange="this.form.submit()">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                    {{ language.name_local }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4">
         {% if messages %}
             <div class="mb-4">
                 {% for message in messages %}
@@ -97,47 +98,48 @@
                 {% endfor %}
             </div>
         {% endif %}
-
+        
         {% block content %}{% endblock %}
-    </div>
-</main>
+    </main>
 
-<!-- Footer -->
-<footer class="bg-dark text-white py-4 mt-5">
-    <div class="container">
-        <div class="row text-center text-md-start">
-            <div class="col-md-4">
-                <h6>{% trans "عن النظام" %}</h6>
-                <p>{% trans "نظام متكامل لإدارة إيجارات العقارات التجارية في سلطنة عمان" %}</p>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>{% trans "عن النظام" %}</h5>
+                    <p>{% trans "نظام متكامل لإدارة إيجارات العقارات التجارية في سلطنة عمان" %}</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>{% trans "روابط سريعة" %}</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">{% trans "الرئيسية" %}</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li><a href="#" class="text-white">{% trans "لوحة التحكم" %}</a></li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}" class="text-white">{% trans "تسجيل دخول" %}</a></li>
+                            <li><a href="{% url 'register' %}" class="text-white">{% trans "تسجيل جديد" %}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>{% trans "اتصل بنا" %}</h5>
+                    <address>
+                        {% trans "سلطنة عمان" %}<br>
+                        {% trans "مسقط، الخوير" %}<br>
+                        {% trans "هاتف: +968 1234 5678" %}
+                    </address>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h6>{% trans "روابط سريعة" %}</h6>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">{% trans "الرئيسية" %}</a></li>
-                    {% if request.user.is_authenticated %}
-                        <li><a href="#" class="text-white text-decoration-none">{% trans "لوحة التحكم" %}</a></li>
-                    {% else %}
-                        <li><a href="{% url 'login' %}" class="text-white text-decoration-none">{% trans "تسجيل دخول" %}</a></li>
-                        <li><a href="{% url 'register' %}" class="text-white text-decoration-none">{% trans "تسجيل جديد" %}</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h6>{% trans "اتصل بنا" %}</h6>
-                <address>
-                    {% trans "سلطنة عمان" %}<br>
-                    {% trans "مسقط، الخوير" %}<br>
-                    {% trans "هاتف: +968 1234 5678" %}
-                </address>
+            <hr>
+            <div class="text-center">
+                <p class="m-0">{% trans "جميع الحقوق محفوظة &copy; نظام إدارة الإيجارات" %} {{ year }}</p>
             </div>
         </div>
-        <hr class="bg-light">
-        <p class="text-center mb-0">{% trans "جميع الحقوق محفوظة &copy; نظام إدارة الإيجارات" %} {{ year }}</p>
-    </div>
-</footer>
+    </footer>
 
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-{% block extra_js %}{% endblock %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
