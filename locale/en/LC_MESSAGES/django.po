@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 10:16+0000\n"
+"POT-Creation-Date: 2025-04-16 11:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,329 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/admin.py:12 accounts/models.py:19
+msgid "يجب إدخال رقم هاتف صحيح بصيغة: '+968XXXXXXXX'"
+msgstr ""
+
+#: accounts/admin.py:18 accounts/forms.py:50 accounts/models.py:23
+#: templates/accounts/profile_company.html:41
+#: templates/accounts/profile_delegate.html:25
+#: templates/accounts/profile_owner.html:25
+msgid "رقم الهاتف"
+msgstr ""
+
+#: accounts/admin.py:26 accounts/forms.py:15 accounts/models.py:16
+msgid "نوع المستخدم"
+msgstr ""
+
+#: accounts/admin.py:49 accounts/forms.py:33 accounts/models.py:51
+#: templates/accounts/profile_delegate.html:29
+msgid "رقم التفويض"
+msgstr ""
+
+#: accounts/admin.py:50 accounts/forms.py:34 accounts/models.py:52
+msgid "تاريخ البدء"
+msgstr ""
+
+#: accounts/admin.py:51 accounts/forms.py:35 accounts/models.py:53
+msgid "تاريخ الانتهاء"
+msgstr ""
+
+#: accounts/admin.py:52 accounts/forms.py:36 accounts/models.py:54
+#: templates/accounts/profile_delegate.html:39
+msgid "نشط"
+msgstr ""
+
+#: accounts/admin.py:53 accounts/forms.py:37 accounts/models.py:57
+#: templates/accounts/profile_delegate.html:60
+msgid "وثيقة التفويض"
+msgstr ""
+
+#: accounts/forms.py:13
+msgid "اسم المستخدم"
+msgstr ""
+
+#: accounts/forms.py:14 templates/accounts/profile_company.html:37
+#: templates/accounts/profile_delegate.html:21
+#: templates/accounts/profile_owner.html:21
+msgid "البريد الإلكتروني"
+msgstr ""
+
+#: accounts/forms.py:41
+msgid "كلمة المرور"
+msgstr ""
+
+#: accounts/forms.py:42
+msgid "تأكيد كلمة المرور"
+msgstr ""
+
+#: accounts/forms.py:47 accounts/models.py:26
+msgid "اسم الشركة"
+msgstr ""
+
+#: accounts/forms.py:48 accounts/models.py:27
+#: templates/accounts/profile_company.html:45
+msgid "السجل التجاري"
+msgstr ""
+
+#: accounts/forms.py:49 accounts/models.py:28
+#: templates/accounts/profile_company.html:49
+msgid "البطاقة الضريبية"
+msgstr ""
+
+#: accounts/forms.py:51
+msgid "العنوان التفصيلي"
+msgstr ""
+
+#: accounts/forms.py:57
+msgid "كلمة المرور غير متطابقة"
+msgstr ""
+
+#: accounts/models.py:9
+msgid "مالك المبنى"
+msgstr ""
+
+#: accounts/models.py:10 templates/accounts/profile_company.html:25
+msgid "شركة مستثمرة"
+msgstr ""
+
+#: accounts/models.py:11 templates/accounts/profile_company.html:27
+msgid "شركة مستأجرة"
+msgstr ""
+
+#: accounts/models.py:12
+msgid "مفوض التوقيع"
+msgstr ""
+
+#: accounts/models.py:29
+msgid "عنوان الشركة"
+msgstr ""
+
+#: accounts/models.py:32
+msgid "حساب موثوق"
+msgstr ""
+
+#: accounts/models.py:33 accounts/models.py:60
+msgid "تاريخ الإنشاء"
+msgstr ""
+
+#: accounts/models.py:34 accounts/models.py:61
+msgid "تاريخ التحديث"
+msgstr ""
+
+#: accounts/models.py:37
+msgid "مستخدم"
+msgstr ""
+
+#: accounts/models.py:38
+msgid "المستخدمون"
+msgstr ""
+
+#: accounts/models.py:49
+msgid "المستخدم"
+msgstr ""
+
+#: accounts/models.py:58
+msgid "يجب أن تكون الوثيقة موقعة ومختومة"
+msgstr ""
+
+#: accounts/models.py:64
+msgid "مفوض"
+msgstr ""
+
+#: accounts/models.py:65
+msgid "المفوضون"
+msgstr ""
+
+#: accounts/urls.py:11 templates/accounts/login.html:8
+msgid "تسجيل الدخول"
+msgstr ""
+
+#: accounts/urls.py:36
+msgid "تغيير كلمة المرور"
+msgstr ""
+
+#: accounts/urls.py:40
+msgid "تم تغيير كلمة المرور"
+msgstr ""
+
+#: accounts/urls.py:48
+msgid "إعادة تعيين كلمة المرور"
+msgstr ""
+
+#: accounts/urls.py:52
+msgid "تم إرسال البريد"
+msgstr ""
+
+#: accounts/urls.py:56
+msgid "تأكيد إعادة التعيين"
+msgstr ""
+
+#: accounts/urls.py:60
+msgid "تم إعادة التعيين"
+msgstr ""
+
+#: accounts/views.py:23
+msgid "تسجيل حساب جديد"
+msgstr ""
+
+#: accounts/views.py:27
+msgid "تسجيل مالك مبنى"
+msgstr ""
+
+#: accounts/views.py:30
+msgid "تسجيل شركة مستثمرة"
+msgstr ""
+
+#: accounts/views.py:33
+msgid "تسجيل شركة مستأجرة"
+msgstr ""
+
+#: accounts/views.py:58
+msgid "تسجيل مفوض توقيع"
+msgstr ""
+
+#: accounts/views.py:96
+msgid "ملف المالك"
+msgstr ""
+
+#: accounts/views.py:104
+msgid "ملف المستثمر"
+msgstr ""
+
+#: accounts/views.py:112
+msgid "ملف المستأجر"
+msgstr ""
+
+#: accounts/views.py:122
+msgid "ملف المفوض"
+msgstr ""
+
+#: accounts/views.py:136 templates/accounts/user_list.html:8
+msgid "قائمة المستخدمين"
+msgstr ""
+
+#: accounts/views.py:147 templates/accounts/user_detail.html:20
+msgid "تفاصيل المستخدم"
+msgstr ""
+
+#: templates/accounts/login.html:12
+msgid "نسيت كلمة المرور؟"
+msgstr ""
+
+#: templates/accounts/login.html:17
+msgid "ليس لديك حساب؟"
+msgstr ""
+
+#: templates/accounts/login.html:17
+msgid "سجل الآن"
+msgstr ""
+
+#: templates/accounts/profile_company.html:12
+msgid "معلومات المستثمر"
+msgstr ""
+
+#: templates/accounts/profile_company.html:14
+msgid "معلومات المستأجر"
+msgstr ""
+
+#: templates/accounts/profile_company.html:33
+msgid "الممثل القانوني"
+msgstr ""
+
+#: templates/accounts/profile_company.html:62
+msgid "المباني المستثمرة"
+msgstr ""
+
+#: templates/accounts/profile_company.html:64
+msgid "العقارات المستأجرة"
+msgstr ""
+
+#: templates/accounts/profile_company.html:72
+msgid "سيتم عرض المباني المستثمرة هنا"
+msgstr ""
+
+#: templates/accounts/profile_company.html:74
+msgid "سيتم عرض العقارات المستأجرة هنا"
+msgstr ""
+
+#: templates/accounts/profile_delegate.html:10
+msgid "معلومات المفوض"
+msgstr ""
+
+#: templates/accounts/profile_delegate.html:17
+msgid "مفوض توقيع"
+msgstr ""
+
+#: templates/accounts/profile_delegate.html:33
+msgid "فترة التفويض"
+msgstr ""
+
+#: templates/accounts/profile_delegate.html:37
+msgid "حالة التفويض"
+msgstr ""
+
+#: templates/accounts/profile_delegate.html:39
+msgid "منتهي"
+msgstr ""
+
+#: templates/accounts/profile_delegate.html:50
+msgid "الشركة المفوّضة"
+msgstr ""
+
+#: templates/accounts/profile_delegate.html:54
+msgid "سيتم عرض معلومات الشركة المفوّضة هنا"
+msgstr ""
+
+#: templates/accounts/profile_delegate.html:64
+msgid "عرض الوثيقة"
+msgstr ""
+
+#: templates/accounts/profile_owner.html:10
+msgid "معلومات المالك"
+msgstr ""
+
+#: templates/accounts/profile_owner.html:17
+msgid "مالك مبنى"
+msgstr ""
+
+#: templates/accounts/profile_owner.html:36
+msgid "المباني المملوكة"
+msgstr ""
+
+#: templates/accounts/profile_owner.html:40
+msgid "سيتم عرض المباني المملوكة هنا"
+msgstr ""
+
+#: templates/accounts/register.html:8
+msgid "تسجيل الحساب"
+msgstr ""
+
+#: templates/accounts/register.html:13
+msgid "لديك حساب بالفعل؟"
+msgstr ""
+
+#: templates/accounts/register.html:13
+msgid "سجل الدخول"
+msgstr ""
+
+#: templates/accounts/user_detail.html:12
+msgid "تفاصيل المالك"
+msgstr ""
+
+#: templates/accounts/user_detail.html:14
+msgid "تفاصيل المستثمر"
+msgstr ""
+
+#: templates/accounts/user_detail.html:16
+msgid "تفاصيل المستأجر"
+msgstr ""
+
+#: templates/accounts/user_detail.html:18
+msgid "تفاصيل المفوض"
+msgstr ""
+
 #: templates/home.html:5
 msgid "مرحباً بك في نظام إدارة الأيجارات"
 msgstr "Welcome to the Rental Management System"
