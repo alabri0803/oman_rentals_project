@@ -5,7 +5,7 @@ from accounts.models import CustomUser
 
 class Property(models.Model):
   PROPERTY_TYPES = (
-    ('commercial', 'تجاري')
+    ('commercial', 'تجاري'),
   )
   name = models.CharField(max_length=100)
   address = models.TextField()
