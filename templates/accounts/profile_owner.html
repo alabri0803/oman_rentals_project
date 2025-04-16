@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title">{% trans "معلومات المالك" %}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img src="{% static 'images/avatar.png' %}" class="rounded-circle" width="120" alt="Avatar">
+                    </div>
+                    <h5 class="text-center">{{ profile_user.get_full_name }}</h5>
+                    <p class="text-muted text-center">{% trans "مالك مبنى" %}</p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{% trans "البريد الإلكتروني" %}</span>
+                            <span>{{ profile_user.email }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{% trans "رقم الهاتف" %}</span>
+                            <span>{{ profile_user.phone }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title">{% trans "المباني المملوكة" %}</h4>
+                </div>
+                <div class="card-body">
+                    <!-- سيتم إضافة قائمة المباني هنا -->
+                    <p class="text-muted">{% trans "سيتم عرض المباني المملوكة هنا" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

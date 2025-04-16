@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">
+                        {% if profile_user.user_type == 'owner' %}
+                            {% trans "تفاصيل المالك" %}
+                        {% elif profile_user.user_type == 'investor' %}
+                            {% trans "تفاصيل المستثمر" %}
+                        {% elif profile_user.user_type == 'tenant' %}
+                            {% trans "تفاصيل المستأجر" %}
+                        {% elif profile_user.user_type == 'delegate' %}
+                            {% trans "تفاصيل المفوض" %}
+                        {% else %}
+                            {% trans "تفاصيل المستخدم" %}
+                        {% endif %}
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <!-- سيتم عرض تفاصيل المستخدم هنا -->
+                    {% include "accounts/includes/user_details.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

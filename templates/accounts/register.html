@@ -1,0 +1,14 @@
+{% extends "accounts/base_accounts.html" %}
+{% load i18n crispy_forms_tags %}
+
+{% block account_content %}
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary btn-block">{% trans "تسجيل الحساب" %}</button>
+</form>
+{% endblock %}
+
+{% block account_footer %}
+{% trans "لديك حساب بالفعل؟" %} <a href="{% url 'login' %}">{% trans "سجل الدخول" %}</a>
+{% endblock %}

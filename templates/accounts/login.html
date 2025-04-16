@@ -1,0 +1,18 @@
+{% extends "accounts/base_accounts.html" %}
+{% load i18n crispy_forms_tags %}
+
+{% block account_content %}
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary btn-block">{% trans "تسجيل الدخول" %}</button>
+</form>
+<hr>
+<div class="text-center">
+    <a href="{% url 'password_reset' %}" class="text-muted">{% trans "نسيت كلمة المرور؟" %}</a>
+</div>
+{% endblock %}
+
+{% block account_footer %}
+{% trans "ليس لديك حساب؟" %} <a href="{% url 'register' %}">{% trans "سجل الآن" %}</a>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title">{% trans "معلومات المفوض" %}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img src="{% static 'images/delegate.png' %}" class="rounded-circle" width="120" alt="Delegate">
+                    </div>
+                    <h5 class="text-center">{{ profile_user.get_full_name }}</h5>
+                    <p class="text-muted text-center">{% trans "مفوض توقيع" %}</p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{% trans "البريد الإلكتروني" %}</span>
+                            <span>{{ profile_user.email }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{% trans "رقم الهاتف" %}</span>
+                            <span>{{ profile_user.phone }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{% trans "رقم التفويض" %}</span>
+                            <span>{{ delegate.authorization_number }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{% trans "فترة التفويض" %}</span>
+                            <span>{{ delegate.start_date|date:"Y-m-d" }} إلى {{ delegate.end_date|date:"Y-m-d" }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{% trans "حالة التفويض" %}</span>
+                            <span class="badge bg-{% if delegate.is_active %}success{% else %}danger{% endif %}">
+                                {% if delegate.is_active %}{% trans "نشط" %}{% else %}{% trans "منتهي" %}{% endif %}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title">{% trans "الشركة المفوّضة" %}</h4>
+                </div>
+                <div class="card-body">
+                    <!-- سيتم إضافة معلومات الشركة هنا -->
+                    <p class="text-muted">{% trans "سيتم عرض معلومات الشركة المفوّضة هنا" %}</p>
+                </div>
+            </div>
+
+            <div class="card shadow mt-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title">{% trans "وثيقة التفويض" %}</h4>
+                </div>
+                <div class="card-body text-center">
+                    <a href="{{ delegate.authorization_document.url }}" target="_blank" class="btn btn-outline-primary">
+                        <i class="fas fa-file-pdf"></i> {% trans "عرض الوثيقة" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
