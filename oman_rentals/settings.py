@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # تحميل متغيرات البئة
@@ -124,7 +125,6 @@ LANGUAGE_CODE = 'ar'
 TIME_ZONE = 'Asia/Muscat'
 USE_L10N = True
 USE_I18N = True
-
 USE_TZ = True
 
 
