@@ -11,11 +11,11 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body dir="rtl">
-   {% include '_header.html' %}
+   {% include 'partials/_header.html' %}
     <min class="container-fluid mt-4">
         {% block content %}{% endblock %}
     </min>
-    {% include '_footer.html' %}
+    {% include 'partials/_footer.html' %}
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     {% block extra_js %}{% endblock %}
