@@ -1,0 +1,40 @@
+{% load static i18n %}
+<header class="bg-omani-green text-white py-3">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <img src="{% static 'images/logo.png' %}" alt="{% trans _('شعار النظام') %}" style="max-height: 60px;">
+      </div>
+      <div class="col-md-2 text-center">
+        <h1 class="mb-0">{% trans _("نظام إدارة العقارات التجارية") %}</h1>
+        <p class="mb-0">{% trans _("سلطنة عُمان") %}</p>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-omani-blue">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">
+            {% trans _("الرئيسية") %}
+          </a>
+        </li>
+      </ul>
+      <form action="{% url 'set_language' %}" method="post" class="language-switcher">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        <select name="language" onchange="this.form.submit()" class="form-select">
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% for code, name in LANGUAGES %}
+            <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>
+              {{ name }}
+            </option>
+          {% endfor %}
+        </select>
+      </form>
+    </div>
+  </div>
+</nav>

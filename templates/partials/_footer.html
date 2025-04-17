@@ -1,0 +1,27 @@
+{% load i18n static %}
+<footer class="bg-omani-sand text-white py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>{% trans _("روابط سريعة") %}</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-dark">{% trans _("الأسئلة الشائعة") %}</a></li>
+                    <li><a href="#" class="text-dark">{% trans _("الشروط والأحكام") %}</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+              <img src="{% static 'images/oman-government-logo.png' %}" alt="{% trans _('شعار الحكومة') %}" style="max-height: 50px;>
+                <p class="mt-2">{% trans _("نظام معتمد من الحكومة الألكترونية") %}</p>
+            </div>
+            <div class="col-md-4 text-start">
+                <h5>{% trans _("اتصل بنا") %}</h5>
+                <p>{% trans _("رقم الهاتف: +968 24 123 456") %}</p>
+                <p>{% trans _("البريد الإلكتروني: info@omanproperty.com") %}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+            <p>&copy; {% now "Y" %} {% now "Y" %} {% trans _("جميع الحقوق محفوظة - سلطنة عُمان") %}</p>
+        </div>
+    </div>
+</footer>
