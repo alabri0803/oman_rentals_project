@@ -1,23 +1,28 @@
-{% load static i18n %}
+{% load i18n static %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% trans "نظام إدارة الإيجارات" %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/theme-omani.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    {% block extra_css %}{% endblock %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}عُمان للإيجرات{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body dir="rtl">
-   {% include 'partials/_header.html' %}
-    <min class="container-fluid mt-4">
-        {% block content %}{% endblock %}
-    </min>
-    {% include 'partials/_footer.html' %}
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-    {% block extra_js %}{% endblock %}
+<body class="bg-light">
+  <header class="bg-omani-green text-white p-3">
+    <div class="container">
+      <h1>{% trans _("نظام إدارة الإيجارات") %}</h1>
+    </div>
+  </header>
+  <main class="container py-5">
+    {% block content %}
+    {% endblock %}
+  </main>
+  <footer class="bg-omani-green text-white text-center p-3">
+    <p>&copy; 2025 {% trans _("سلطنة عُمان") %}</p>
+  </footer>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

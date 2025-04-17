@@ -1,17 +1,9 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 {% block content %}
-<div class="hero-section text-center py-5 bg-light">
-  <div class="container">
-    <h1 class="display-4 mb-4">{% trans _("مرحبًا بك في نظام إدارة العقارات") %}</h1>
-    <p class="lead">{% trans _("الحل المتكامل لإدارة الممتلكات التجلرية في سلطنة عُمان") %}</p>
-    <div class="omani-landmarks mt-5">
-      <div class="row">
-        <div class="col-md-4">
-          <img src="{% static 'images/muscat.jpg' %}" alt="{% trans _('مسقط') %}" class="img-fluid rounded">
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="text-center">
+    <h2>{% trans _("مرحبًا بك في نظام إدارة العقارات") %}</h2>
+    <p class="lead">{% trans _("الحل المتكامل لإدارة الممتلكات في سلطنة عُمان") %}</p>
+    <a href="{% url 'dashboard' %}" class="btn btn-omanin">{% trans _("الدخول إلى لوحة التحكم") %}</a>
 </div>
 {% endblock %}

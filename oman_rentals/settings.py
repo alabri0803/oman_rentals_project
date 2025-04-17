@@ -158,3 +158,8 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'home'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 RTL_LANGUAGES = ['ar']
+OMANI_SETTINGS = {
+    'COMPANY_NAME': 'إدارة الإيجارات العُمانية',
+    'VAT_PERCENTAGE': 0.05,
+    'NATIONAL_ADDRESS_SYSTEM': True,
+}
